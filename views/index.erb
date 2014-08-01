@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jenkins Dashboard</title>
+        <style type="text/css">
+            body { background-color: #000 }
+            .job {
+                display: inline-block;
+                width: 120px;
+                height: 70px;
+                overflow: hidden;
+            }
+            .job.blue { background-color: #080 }
+            .job.red { background-color: #c00 }
+            .job.disabled { background-color: #888 }
+        </style>
+    </head>
+    <body>
+
+        <% jobs.each do |job| %>
+            <div class="job <%= job['color'] %>"><%= job['name'] %></div>
+        <% end %>
+
+    </body>
+</html>
