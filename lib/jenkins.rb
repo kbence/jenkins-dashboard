@@ -20,7 +20,7 @@ class Jenkins
   end
 
   def base_view_url
-    p "#{base_url}/#{@config['view'] || ''}"
+    p "/#{@config['view'] || ''}"
   end
 
   def options

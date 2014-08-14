@@ -37,12 +37,17 @@
             .job.notbuilt, .job.disabled {
                 background-color: rgb(103, 105, 108);
             }
+            a .job {
+                text-decoration: none;
+                color: black;
+                text-shadow: 1px 1px 0px #666;
+            }
         </style>
     </head>
     <body>
 
         <% jobs.each do |job| %>
-            <div class="job <%= job['color'] %>"><%= job['name'] %></div>
+            <a href="<%= job['url'] %>lastBuild/console" target="_blank"><div class="job <%= job['color'] %>"><%= job['name'] %></div></a>
         <% end %>
 
     </body>
