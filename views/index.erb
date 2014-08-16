@@ -10,7 +10,7 @@
 
         <div class="status_indicators">
             <% jobs.each do |job| %>
-                <a href="<%= job.url %>lastBuild/console" target="_blank"><div class="job <%= job.status %>">
+                <a href="<%= job.build_url %>" target="_blank"><div class="job <%= job.status %>">
                     <%= job.name %>
                 </div></a>
             <% end %>

@@ -12,6 +12,15 @@ module Jenkins
       @url = url
       @status = JobStatus.new(status)
     end
+
+    def build_url
+      p @status.to_s
+      if @status.to_s == "unknown"
+        @url
+      else
+        "#{@url}/lastBuild/console"
+      end
+    end
   end
 
   class JobStatus
