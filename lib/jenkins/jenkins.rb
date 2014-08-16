@@ -1,4 +1,5 @@
 require 'httparty'
+require_relative 'job'
 
 module Jenkins
 
@@ -10,7 +11,9 @@ module Jenkins
     end
 
     def jobs
-      get("#{base_view_url}/api/json")['jobs']
+      get("#{base_view_url}/api/json")['jobs'].map do |job|
+        Job.new self, job['name'], job['url'], job['color']
+      end
     end
 
     private
