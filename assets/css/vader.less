@@ -1,0 +1,53 @@
+@import url(http://fonts.googleapis.com/css?family=Homenaje);
+
+@good_color: #062207;
+
+body {
+  background-color: #151515;
+  font-family: Homenaje;
+  font-size: 12pt;
+  font-weight: normal;
+  color: white;
+}
+
+.status_indicators {
+  a {
+    color: #ccc;
+    text-decoration: none;
+
+    .job {
+      display: inline-block;
+      overflow: hidden;
+
+      width: 120px;
+      height: 60px;
+      padding: 3px;
+      margin: 3px;
+
+      background-color: #222;
+//      border: 1px solid #333;
+      box-shadow: 3px 3px 3px #000;
+    }
+
+    .good {
+      color: #0c0;
+    }
+
+    .bad {
+      background-color: #520200;
+    }
+
+    .aborted {
+      color: #666;
+    }
+
+    .unstable {
+      background-color: #960;
+    }
+
+    .notbuilt, .disable, .unknown {
+      background-color: #000;
+      color: #333;
+    }
+  }
+}

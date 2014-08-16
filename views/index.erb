@@ -2,53 +2,19 @@
 <html>
     <head>
         <title>Jenkins Dashboard</title>
+        <link rel="stylesheet" type="text/css" href="/css/vader.css" />
         <style type="text/css">
-            body {
-                background-color: #000;
-                font-family: sans-serif;
-                font-size: 10pt;
-            }
-            .job {
-                display: inline-block;
-                vertical-align: bottom;
-                width: 120px;
-                height: 60px;
-                overflow: hidden;
-                border-radius: 5px;
-                padding: 5px;
-                margin: 2px;
-            }
-            .job.good {
-                background: linear-gradient(to bottom, rgb(89, 155, 67) 0%, rgb(39, 84, 20) 50%, rgb(42, 60, 0) 51%, rgb(60, 108, 22) 100%);
-                background-color: rgb(89, 155, 67);
-            }
-            .job.bad {
-                background: linear-gradient(to bottom, rgb(155, 81, 85) 0%, rgb(84, 0, 2) 50%, rgb(60, 0, 1) 51%, rgb(108, 0, 1) 100%);
-                background-color: rgb(108, 0, 1);
-            }
-            .job.unstable {
-                background: linear-gradient(to bottom, rgb(238, 238, 0) 0%, rgb(198, 190, 40) 50%, rgb(145, 137, 0) 51%, rgb(198, 166, 47) 100%);
-                background-color: rgb(198, 166, 47);
-            }
-            .job.aborted {
-                background: linear-gradient(to bottom, rgb(149, 146, 155) 0%, rgb(82, 82, 84) 50%, rgb(59, 57, 60) 51%, rgb(103, 105, 108) 100%);
-                background-color: rgb(103, 105, 108);
-            }
-            .job.notbuilt, .job.disabled, .job.unknown {
-                background-color: rgb(103, 105, 108);
-            }
-            a .job {
-                text-decoration: none;
-                color: black;
-                text-shadow: 1px 1px 0px #666;
-            }
         </style>
     </head>
     <body>
 
-        <% jobs.each do |job| %>
-            <a href="<%= job.url %>lastBuild/console" target="_blank"><div class="job <%= job.status %>"><%= job.name %></div></a>
-        <% end %>
+        <div class="status_indicators">
+            <% jobs.each do |job| %>
+                <a href="<%= job.url %>lastBuild/console" target="_blank"><div class="job <%= job.status %>">
+                    <%= job.name %>
+                </div></a>
+            <% end %>
+        </div>
 
     </body>
 </html>
