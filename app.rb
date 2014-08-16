@@ -2,14 +2,14 @@ require 'sinatra'
 require 'httparty'
 require 'json'
 require './lib/yaml_config'
-require './lib/jenkins'
+require './lib/jenkins/jenkins'
 
 class App < Sinatra::Base
   def initialize
     super
 
     @config = YamlConfig.get
-    @jenkins = Jenkins.new @config['jenkins']
+    @jenkins = Jenkins::Jenkins.new @config['jenkins']
   end
 
   get '/' do
