@@ -14,7 +14,6 @@ module Jenkins
     end
 
     def build_url
-      p @status.to_s
       if @status.to_s == "unknown"
         @url
       else
