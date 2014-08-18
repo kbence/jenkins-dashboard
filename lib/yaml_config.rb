@@ -17,7 +17,7 @@ class YamlConfig
     conf = @config
 
     str.to_s.split('.').each do |part|
-      if conf.key? part
+      if conf && conf.key?(part)
         conf = conf[part]
       else
         return default
