@@ -29,7 +29,7 @@ module Jenkins
     end
 
     def base_view_url
-      "/#{@config['view'] || ''}"
+      "/view/#{@config['view'] || ''}"
     end
 
     def options
