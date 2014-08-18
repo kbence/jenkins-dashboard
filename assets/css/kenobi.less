@@ -1,0 +1,54 @@
+@import url(http://fonts.googleapis.com/css?family=Courgette:400);
+
+body {
+  background-color: #896f4f;
+  font-family: Courgette;
+  font-size: 10pt;
+  font-weight: normal;
+  color: #000000;
+}
+
+.status_indicators {
+  a {
+    color: #333;
+    text-decoration: none;
+
+    .job {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+      border-radius: 2px;
+
+      width: 120px;
+      height: 40px;
+      padding: 3px;
+      margin: 3px;
+
+      background-color: #decb9e;
+      box-shadow: 3px 3px 3px #000;
+    }
+
+    .good {
+      color: #265c21;
+    }
+
+    .bad {
+      background-color: #9b2b2a;
+      color: #ccc;
+    }
+
+    .aborted {
+      background-color: #575757;
+      color: #000000;
+    }
+
+    .unstable {
+      background-color: #dabb1f;
+    }
+
+    .notbuilt, .disabled, .unknown {
+      background-color: #a4a4a4;
+      color: #333;
+    }
+  }
+}
