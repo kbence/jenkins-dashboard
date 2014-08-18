@@ -1,0 +1,54 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed);
+
+body {
+  background-color: rgba(0, 11, 37, 0.88);
+  font-family: Ubuntu Condensed;
+  font-size: 12pt;
+  font-weight: normal;
+  color: #5692b2;
+}
+
+.status_indicators {
+  a {
+    color: #333;
+    text-decoration: none;
+
+    .job {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+      border-radius: 2px;
+
+      width: 120px;
+      height: 40px;
+      padding: 3px;
+      margin: 3px;
+
+      background-color: #7c7c7c;
+      box-shadow: 3px 3px 3px #000;
+    }
+
+    .good {
+      color: #005d03;
+    }
+
+    .bad {
+      background-color: #9b2b2a;
+      color: #ccc;
+    }
+
+    .aborted {
+      background-color: #575757;
+      color: #000000;
+    }
+
+    .unstable {
+      background-color: #dabf56;
+    }
+
+    .notbuilt, .disabled, .unknown {
+      background-color: #1c1b29;
+      color: #989898;
+    }
+  }
+}
