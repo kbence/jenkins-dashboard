@@ -1,10 +1,12 @@
 require 'sinatra'
 require 'httparty'
 require 'json'
-require './lib/yaml_config'
-require './lib/jenkins/jenkins'
 require 'sinatra/assetpack'
 require 'less'
+
+require_relative 'lib/yaml_config'
+require_relative 'lib/jenkins/jenkins'
+require_relative 'lib/cache'
 
 class App < Sinatra::Base
   register Sinatra::AssetPack
@@ -17,7 +19,8 @@ class App < Sinatra::Base
     super
 
     @config = YamlConfig.get
-    @jenkins = Jenkins::Jenkins.new @config['jenkins']
+    @cache = Cache.new
+    @jenkins = Jenkins::Jenkins.new @cache, @config['jenkins']
   end
 
   get '/' do

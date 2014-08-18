@@ -1,4 +1,5 @@
 require 'httparty'
+require 'digest'
 require_relative 'job'
 
 module Jenkins
@@ -6,12 +7,17 @@ module Jenkins
   class Jenkins
     include HTTParty
 
-    def initialize(config)
+    def initialize(cache, config)
+      @cache = cache
       @config = config
     end
 
     def jobs
-      get("#{base_view_url}/api/json")['jobs'].map do |job|
+      jobs = @cache.get(cache_id 'jobs') do
+        get("#{base_view_url}/api/json")
+      end
+
+      jobs['jobs'].map do |job|
         Job.new self, job['name'], job['url'], job['color']
       end
     end
@@ -29,6 +35,14 @@ module Jenkins
     def options
       { :base_uri => @config['host'] }
           .merge(auth_options)
+    end
+
+    def cache_prefix
+      "jenkins #{@config['host']}#{base_view_url}"
+    end
+
+    def cache_id(id)
+      Digest::MD5.hexdigest "#{cache_prefix} #{id}"
     end
 
     def auth_options

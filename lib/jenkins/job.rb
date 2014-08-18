@@ -17,7 +17,7 @@ module Jenkins
       if @status.to_s == "unknown"
         @url
       else
-        "#{@url}/lastBuild/console"
+        "#{@url}lastBuild/console"
       end
     end
   end
