@@ -12,17 +12,12 @@ class Layout
     fullWidth = $container.width()
     fullHeight = $container.height()
 
-#    itemsPerRow = Math.ceil((fullWidth * fullHeight) / ($items.length * fullHeight))
     itemsPerRow = Math.ceil(fullWidth / Math.sqrt(fullWidth * fullHeight / $items.length) * 0.8)
     numRows = Math.ceil($items.length / itemsPerRow)
-    console.log $items.length, itemsPerRow, numRows
 
     $items.each (key, item) ->
       $item = $(item)
-      itemWidth = Math.floor(fullWidth / itemsPerRow)
-      itemHeight = Math.floor(fullHeight / numRows)
-      console.log itemWidth, itemHeight
-      self.setDimensions $item, itemWidth, itemHeight
+      self.setDimensions $item, Math.floor(fullWidth / itemsPerRow), Math.floor(fullHeight / numRows)
 
   getExtraDimensions: ($item) ->
     width: $item.outerWidth(true) - $item.width(),
@@ -30,7 +25,6 @@ class Layout
 
   setDimensions: ($item, width, height) ->
     extraDim = this.getExtraDimensions $item
-    console.log extraDim
     $item.width width - extraDim.width
     $item.height height - extraDim.height
 
