@@ -29,7 +29,11 @@ module Jenkins
     end
 
     def base_view_url
-      "/view/#{@config['view'] || ''}"
+      if @config.has_key? 'view'
+        "/view/#{@config['view'] || ''}"
+      else
+        ''
+      end
     end
 
     def options
