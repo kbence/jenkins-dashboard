@@ -32,3 +32,5 @@ $ ->
   layout = new Layout '.status_indicators', '.status_indicators a .job'
   layout.doLayout()
 
+  $(window).resize ->
+    layout.doLayout()
