@@ -15,6 +15,13 @@ class App < Sinatra::Base
 
   assets {
     serve '/css', from: 'assets/css'
+    serve '/js',  from: 'assets/js'
+
+    js :app, [
+        '/js/*.js'
+    ]
+
+    js_compression :jsmin
   }
 
   def initialize

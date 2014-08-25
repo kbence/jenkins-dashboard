@@ -2,18 +2,19 @@
 <html>
     <head>
         <title>Jenkins Dashboard</title>
+        <link rel="stylesheet" type="text/css" href="/css/base.css" />
         <link rel="stylesheet" type="text/css" href="/css/<%= skin %>.css" />
-        <style type="text/css">
-        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <%= js :app %>
     </head>
     <body>
 
         <div class="status_indicators">
-            <% jobs.each do |job| %>
-                <a href="<%= job.build_url %>" target="_blank"><div class="job <%= job.status %>">
-                    <%= job.name %>
-                </div></a>
-            <% end %>
+            <% jobs.each do |job|
+                %><a href="<%= job.build_url %>" target="_blank"><div class="job <%= job.status %>"><%=
+                    job.name
+                %></div></a><%
+            end %>
         </div>
 
     </body>
