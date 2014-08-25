@@ -22,6 +22,14 @@ module Jenkins
       end
     end
 
+    def config(jobname)
+      conf = @cache.get(cache_id "config/#{jobname}") do
+        get("/job/#{jobname}/config.xml")
+      end
+
+      p conf
+    end
+
     private
 
     def get(path)
