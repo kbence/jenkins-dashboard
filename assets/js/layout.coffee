@@ -18,7 +18,7 @@ class Layout
     $items.each (key, item) ->
       $item = $(item)
       self.setDimensions $item, Math.floor(fullWidth / itemsPerRow), Math.floor(fullHeight / numRows)
-      $item.css "font-size", (fullWidth / 1350) + "em"
+      $item.css "font-size", (0.5 + fullWidth / 2700) + "em"
 
   getExtraDimensions: ($item) ->
     width: $item.outerWidth(true) - $item.width(),
